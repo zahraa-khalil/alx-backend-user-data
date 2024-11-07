@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """Personal data encryption module"""
-
-
 import re
+from typing import List
 
 
-def filter_datum(fields: list[str], redaction: str, message: str, separator: str) -> str:
-    """function that returns the log message obfuscated:"""
-    for field in fields:
-        message = re.sub(f'{field}=.*?{separator}',
-                         f'{field}={redaction}{separator}', message)
-
-    return (message)
+def filter_datum(fields: List[str], redaction: str,
+                 message: str, separator: str) -> str:
+    """ Returns a log message obfuscated """
+    for f in fields:
+        message = re.sub(f'{f}=.*?{separator}',
+                         f'{f}={redaction}{separator}', message)
+    return message
