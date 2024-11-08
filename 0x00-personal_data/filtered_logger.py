@@ -3,7 +3,7 @@
 import re
 from typing import List
 import logging
-import os
+from os import environ
 import mysql.connector
 
 
@@ -57,6 +57,7 @@ def get_db() -> mysql.connector.connection.MYSQLConnection:
         database=os.getenv('PERSONAL_DATA_DB_NAME')
     )
     return db_connect
+
 
 
 def main() -> None:
